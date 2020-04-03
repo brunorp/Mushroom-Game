@@ -1,4 +1,4 @@
-# default-readme-generator
+# Mushroom Game!
  
 Browser game developed with Javascript and Phaser framework.
 
