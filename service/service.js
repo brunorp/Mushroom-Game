@@ -11,20 +11,24 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
 })
 
-app.get('/main.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'main.js'));
+app.get('/src/main.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/main.js'));
 })
 
-app.get('/levels/level1.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'levels/level1.js'));
+app.get('/src/levels/level1.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/levels/level1.js'));
 })
 
-app.get('/levels/level2.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'levels/level2.js'));
+app.get('/src/levels/level2.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/levels/level2.js'));
 })
 
-app.get('/levels/level3.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'levels/level3.js'));
+app.get('/src/levels/level3.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/levels/level3.js'));
+})
+
+app.get('/src/public/func.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/public/func.js'));
 })
 
 app.get('/assets/scene/BG/bg.png', (req, res) => {

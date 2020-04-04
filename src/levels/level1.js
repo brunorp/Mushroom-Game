@@ -1,14 +1,13 @@
-import { level3 } from './level3.js'
+import { Public } from '../public/func.js';
 
-const screenHeight = window.innerHeight;
+const p1 = new Public();
+const gameState = {};
 let counter = Math.floor(Math.random() * 7), timer;
 let gameOver = false;
-const gameState = {}
 
-export const level2 = new Phaser.Scene('Level2');
+export const level1 = new Phaser.Scene('Level1');
 
-level2.preload = function () {
-
+    level1.preload = function(){
     this.load.image('background', './assets/scene/BG/bg.png')
 
     this.load.image('floor1', './assets/scene/Tiles/1.png')
@@ -23,47 +22,47 @@ level2.preload = function () {
     this.load.image('water2', './assets/scene/Tiles/18.png')
 
     this.load.image('mushroom', './assets/scene/Object/Mushroom_1.png')
-    this.load.image('mushroom2', './assets/scene/Object/Mushroom_2.png')
-
     this.load.image('crate', './assets/scene/Object/Crate.png')
-    this.load.image('stone', './assets/scene/Object/Stone.png')
 
     this.load.spritesheet('dude', './assets/char/dude.png', { frameWidth: 32, frameHeight: 48 });
+}
 
-};
-
-level2.create = function () {
-    this.add.image(500, screenHeight/2, 'background');
-    this.add.text(16, 16, 'Level: 2', { fontSize: '32px', fill: '#000' });
+level1.create = function(){
+    this.add.image(500, 300, 'background');
+    this.add.text(16, 16, 'Level: 1', { fontSize: '32px', fill: '#000' });
 
     let platforms = this.physics.add.staticGroup();
-    
+
     platforms.create(63, 568, 'floor1')
-    platforms.create(119, 568, 'floor2')
-    platforms.create(400, 510, 'stone')
-    platforms.create(590, 510, 'stone')
-    platforms.create(830, 435, 'floor13');
-
-    gameState.mushroom2 = this.physics.add.staticGroup({
-        key: 'mushroom2',
+    gameState.floor2 = this.physics.add.staticGroup({
+        key: 'floor2',
         repeat: 2,
-        setXY: { x: 200, y: 360, stepX: 200 }
+        setXY: { x: 119, y: 568, stepX: 128 }
     });
-
-    gameState.mushroom  = this.physics.add.staticGroup({
-        key: 'mushroom',
-        repeat: 0,
-        setXY: { x: 40, y: 310, stepX: 2 }
-    });
-
     gameState.water = this.physics.add.staticGroup({
         key: 'water1',
-        repeat: 4,
-        setXY: { x: 247, y: 565, stepX: 128 }
+        repeat: 1,
+        setXY: { x: 503, y: 568, stepX: 128 }
     })
+    platforms.create(758, 568, 'floor2');
+    platforms.create(830, 440, 'floor13');
+    platforms.create(570, 340, 'floor14');
 
-    
-    gameState.player = this.physics.add.sprite(30, 450, 'dude');
+    platforms.create(63, 240, 'floor14');
+    platforms.create(191, 240, 'floor14');
+    gameState.floor8 = this.physics.add.staticGroup({
+        key: 'floor14',
+        repeat: 1,
+        setXY: { x: 191, y: 240, stepX: 128 }
+    });
+
+    gameState.mush  = this.physics.add.staticGroup({
+        key: 'mushroom',
+        repeat: 0,
+        setXY: { x: 35, y: 174, stepX: 2 }
+    });
+
+    gameState.player = this.physics.add.sprite(45, 450, 'dude');
 
     gameState.player.setBounce(0.2);
     gameState.player.setCollideWorldBounds(true);
@@ -76,7 +75,7 @@ level2.create = function () {
                     repeat: counter,
                     setXY: { x: Math.floor(Math.random() * 300), y: 0, stepX: 200 }
                 });
-                this.physics.add.collider(gameState.crate, gameState.player);
+                this.physics.add.collider(gameState.crate, gameState.player, () => { p1.hitDie(gameState.player, timer, this.physics, gameOver) }, null, this);
                 if(gameOver){
                     clearInterval(timer);
                     resolve();
@@ -108,15 +107,15 @@ level2.create = function () {
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
     this.physics.add.collider(gameState.player, platforms);
-    this.physics.add.collider(gameState.player, gameState.mushroom2);
-    this.physics.add.collider(gameState.player, gameState.mushroom, level2.hitMush, null, this);
-    this.physics.add.collider(gameState.player, gameState.water, level2.hitCrate, null, this);
+    this.physics.add.collider(gameState.player, gameState.floor2);
+    this.physics.add.collider(gameState.player, gameState.floor8);
+    this.physics.add.collider(gameState.player, gameState.mush, () => { p1.hitMush(this.scene, 1, timer) }, null, this);
+    this.physics.add.collider(gameState.player, gameState.water, () => { p1.hitDie(gameState.player, timer, this.physics, gameOver) }, null, this);
 }
-
 
 let controlJump = true;
 let contJump = 0;
-level2.update = function(){ 
+level1.update = function(){ 
     if(gameOver){
         return;
     }
@@ -148,19 +147,4 @@ level2.update = function(){
     }
 }
 
-level2.hitCrate = function(player, crate) {
-    clearInterval(timer);
-    player.setTint(0xff0000);
-    player.anims.play('turn');
-    this.physics.pause();
-    gameOver = true;
-}
 
-level2.hitMush = function(player, mush){
-    clearInterval(timer);
-    console.log('you win')
-    this.physics.pause();
-    player.setTint(0x00FF00);
-    player.anims.play('turn');
-    this.scene.start(level3)
-}
