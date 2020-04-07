@@ -10,6 +10,4 @@ app.use('/static', express.static(path.join(__dirname, '..', 'assets')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
 })
-app.listen(8081, function () {
-    console.log(`Listening on 8081`);
-});
+app.listen(process.env.PORT || 3000);
