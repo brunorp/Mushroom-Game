@@ -9,26 +9,26 @@ export const level2 = new Phaser.Scene('Level2');
 
 level2.preload = function () {
 
-    this.load.image('background', './assets/scene/BG/bg.png')
+    this.load.image('background', './static/scene/BG/bg.png')
 
-    this.load.image('floor1', './assets/scene/Tiles/1.png')
-    this.load.image('floor2', './assets/scene/Tiles/2.png')
-    this.load.image('floor3', './assets/scene/Tiles/3.png')
+    this.load.image('floor1', './static/scene/Tiles/1.png')
+    this.load.image('floor2', './static/scene/Tiles/2.png')
+    this.load.image('floor3', './static/scene/Tiles/3.png')
 
-    this.load.image('floor13', './assets/scene/Tiles/13.png')
-    this.load.image('floor14', './assets/scene/Tiles/14.png')
-    this.load.image('floor15', './assets/scene/Tiles/15.png')
+    this.load.image('floor13', './static/scene/Tiles/13.png')
+    this.load.image('floor14', './static/scene/Tiles/14.png')
+    this.load.image('floor15', './static/scene/Tiles/15.png')
 
-    this.load.image('water1', './assets/scene/Tiles/17.png')
-    this.load.image('water2', './assets/scene/Tiles/18.png')
+    this.load.image('water1', './static/scene/Tiles/17.png')
+    this.load.image('water2', './static/scene/Tiles/18.png')
 
-    this.load.image('mushroom', './assets/scene/Object/Mushroom_1.png')
-    this.load.image('mushroom2', './assets/scene/Object/Mushroom_2.png')
+    this.load.image('mushroom', './static/scene/Object/Mushroom_1.png')
+    this.load.image('mushroom2', './static/scene/Object/Mushroom_2.png')
 
-    this.load.image('crate', './assets/scene/Object/Crate.png')
-    this.load.image('stone', './assets/scene/Object/Stone.png')
+    this.load.image('crate', './static/scene/Object/Crate.png')
+    this.load.image('stone', './static/scene/Object/Stone.png')
 
-    this.load.spritesheet('dude', './assets/char/dude.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('dude', './static/char/dude.png', { frameWidth: 32, frameHeight: 48 });
 
 };
 

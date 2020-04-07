@@ -4,7 +4,7 @@ let p1 = new Public();
 export const menu = new Phaser.Scene('menu');
 
 menu.preload = function(){
-    this.load.image('bg', './assets/scene/BG/menuBG.jpg')
+    this.load.image('bg', './static/scene/BG/menuBG.jpg')
 }
 
 menu.create = function(){
