@@ -2,8 +2,9 @@
   "name": "mushroom-game",
   "version": "1.0.0",
   "description": "browser game developed with Javascript and Phaser framework",
-  "main": "index.html",
+  "main": "server/server.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "phaser": "^3.22.0"
