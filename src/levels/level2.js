@@ -109,7 +109,7 @@ level2.create = function () {
 
     this.physics.add.collider(gameState.player, platforms);
     this.physics.add.collider(gameState.player, gameState.mushroom2);
-    this.physics.add.collider(gameState.player, gameState.mush, () => { p1.hitMush(this.scene, 2, timer) }, null, this);
+    this.physics.add.collider(gameState.player, gameState.mush, () => { p1.hitMush(this.scene, 3, timer) }, null, this);
     this.physics.add.collider(gameState.player, gameState.water, () => { p1.hitDie(gameState.player, timer, this.physics, gameOver) }, null, this);
 }
 

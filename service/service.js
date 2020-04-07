@@ -15,6 +15,10 @@ app.get('/src/main.js', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'src/main.js'));
 })
 
+app.get('/src/levels/menu.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/levels/menu.js'));
+})
+
 app.get('/src/levels/level1.js', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'src/levels/level1.js'));
 })
@@ -33,6 +37,10 @@ app.get('/src/public/func.js', (req, res) => {
 
 app.get('/assets/scene/BG/bg.png', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'assets/scene/BG/bg.png'));
+})
+
+app.get('/assets/scene/BG/menuBG.jpg', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'assets/scene/BG/menuBG.jpg'));
 })
 
 app.get('/assets/scene/Tiles/1.png', (req, res) => {

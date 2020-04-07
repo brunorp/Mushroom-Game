@@ -7,8 +7,11 @@ export class Public {
     }
 
     hitMush = function(scen, level, timer){
-        console.log('hittou')
         clearInterval(timer);
+        this.nextScene(scen, level);
+    }
+
+    nextScene = function(scen, level){
         scen.start(config.scene[level])
     }
 

@@ -4,6 +4,7 @@ Browser game developed with Javascript and Phaser framework.
 
 ![Alt text](https://i.imgur.com/F6AId3R.png "Level1")
 ![Alt text](https://i.imgur.com/5SNkuEy.png "Level2")
+![Alt text](https://i.imgur.com/Vz9YUJY.png "Level3")
 
 ## Installation and Usage
 in cmd, choose a folder and run the command:

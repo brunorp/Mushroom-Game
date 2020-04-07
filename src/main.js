@@ -1,6 +1,7 @@
 import { level1 } from './levels/level1.js'
 import { level2 } from './levels/level2.js'
 import { level3 } from './levels/level3.js'
+import { menu } from './levels/menu.js';
 
 export const config = {
     type: Phaser.AUTO,
@@ -15,7 +16,7 @@ export const config = {
             }
         }
     },
-    scene: [level1, level2, level3],
+    scene: [menu, level1, level2, level3],
 }
 
 const game = new Phaser.Game(config);

@@ -1,5 +1,4 @@
-let counter = Math.floor(Math.random() * 7), timer;
-let gameOver = false;
+let gameOver = false, timer;
 const gameState = {}
 
 export const level3 = new Phaser.Scene('Level3');
@@ -111,7 +110,6 @@ level3.update = function(){
     if(gameOver){
         return;
     }
-    counter = Math.floor(Math.random() * 10);
     if(gameState.cursors.left.isDown){
         gameState.player.setVelocityX(-200)
         gameState.player.anims.play('left', true)
