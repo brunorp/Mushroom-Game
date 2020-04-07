@@ -31,6 +31,11 @@ level3.create = function () {
     this.physics.world.gravity.x = -200
     this.add.image(500, 300, 'background');
     this.add.text(16, 16, 'Level: 3', { fontSize: '32px', fill: '#000' });
+    let restart = this.add.text(650, 16, 'Restart', { fontSize: '32px', fill: '#000' })
+    restart.setInteractive({ useHandCursor: true })
+    .on('pointerover', () => restart.setStyle({ fill: '#D62D20'}))
+    .on('pointerout', () => restart.setStyle({ fill: '#000'}))
+    .on('pointerdown', () => p1.restartScene(this.scene, timer));
 
     let platforms = this.physics.add.staticGroup();
    

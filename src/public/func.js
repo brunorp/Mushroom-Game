@@ -11,6 +11,11 @@ export class Public {
         this.nextScene(scen, level);
     }
 
+    restartScene = function(scen, timer) {
+        clearInterval(timer);
+        scen.restart();
+    }
+
     nextScene = function(scen, level){
         scen.start(config.scene[level])
     }

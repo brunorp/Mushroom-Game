@@ -35,6 +35,11 @@ level2.preload = function () {
 level2.create = function () {
     this.add.image(500, 300, 'background');
     this.add.text(16, 16, 'Level: 2', { fontSize: '32px', fill: '#000' });
+    let restart = this.add.text(650, 16, 'Restart', { fontSize: '32px', fill: '#000' })
+    restart.setInteractive({ useHandCursor: true })
+    .on('pointerover', () => restart.setStyle({ fill: '#D62D20'}))
+    .on('pointerout', () => restart.setStyle({ fill: '#000'}))
+    .on('pointerdown', () => p1.restartScene(this.scene, timer));
 
     let platforms = this.physics.add.staticGroup();
     
