@@ -2,6 +2,8 @@
  
 Browser game developed with Javascript and Phaser framework.
 
+Play now!!! https://brunorp.github.io/Mushroom-Game/
+
 ![Alt text](https://i.imgur.com/zfUvnuy.png "Menu")
 ![Alt text](https://i.imgur.com/F6AId3R.png "Level1")
 ![Alt text](https://i.imgur.com/5SNkuEy.png "Level2")
