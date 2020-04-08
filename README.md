@@ -2,7 +2,7 @@
  
 Browser game developed with Javascript and Phaser framework.
 
-Play now!!! https://brunorp.github.io/Mushroom-Game/
+Play now!!! https://mushroom-game.herokuapp.com/
 
 ![Alt text](https://i.imgur.com/zfUvnuy.png "Menu")
 ![Alt text](https://i.imgur.com/F6AId3R.png "Level1")
